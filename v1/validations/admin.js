@@ -106,4 +106,13 @@ module.exports = {
     });
     return await validateSchema(req[property], schema);
   },
+  validateCreateClub: async(req , property) => {
+    let schema = joi.object().keys({
+      doe: joi.date().required(),
+      profilePic: joi.string().required(),
+      gallery: joi.array().items(joi.string()).required(),
+      website: joi.string().trim().lowercase().required(),
+      name: joi.string().trim().lowercase().required(),
+    })
+  }
 };

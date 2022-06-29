@@ -2,27 +2,26 @@ const config = require('config');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Types.ObjectId;
-const ClubModel = new Schema({
-    code: {
+const ClubEmplyoeeModel = new Schema({
+    clubCode: {
         type: String,
         required: true
     },
-    doe: {
-        type: Date,
-        required: false
+    cludbId:{
+        type:String,
+        required:true,
     },
     profilePic: {
         type: String,
-        default: `${config.get('PATHS').IMAGE.ADMIN.STATIC}default.png`
+        default: `${config.get('PATHS').IMAGE.EMPLOYEE.STATIC}default.png`
     },
-    gallery: [{
-        type: String
-    }],
-    website: {
+    firstName: {
         type: String,
-        default: ''
+        default: "",
+        lowercase: true,
+        trim: true
     },
-    name: {
+    lastName: {
         type: String,
         default: "",
         lowercase: true,
@@ -33,18 +32,29 @@ const ClubModel = new Schema({
         lowercase: true,
         trim: true
     },
-    phoneNumbers: [{
-        phone: {
-            type: String,
-            trim: true,
-            default: ''
-        },
-        countryCode: {
-            type: String,
-            trim: true,
-            default: ''
-        }
-    }],
+    phone: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    countryCode: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    gender:{
+        type:String,
+        trim:true,
+        default:''
+    },
+    dob:{
+        type:Date,
+        required:false,
+    },
+    doj:{
+        type:Date,
+        required:false,
+    },
     address: {
         type: String,
         default: ''
@@ -56,10 +66,6 @@ const ClubModel = new Schema({
     long: {
         type: String,
         default: ''
-    },
-    ownerId: {
-        type:ObjectId,
-        required:true,
     },
     status: {
         type: String,
@@ -74,6 +80,10 @@ const ClubModel = new Schema({
         type: Boolean,
         default: false
     },
+    isOwner: {
+        type:Boolean,
+        default:false,
+    },
     isDeleted: {
         type: Boolean,
         default: false
@@ -87,11 +97,19 @@ const ClubModel = new Schema({
         type: ObjectId,
         required: true,
         ref: 'admins'
-    }
+    },
+    deviceType: {
+        type: String,
+        enum: ['IOS', 'ANDROID', 'WEB']
+    },
+    deviceToken: {
+        type: String,
+        default: ''
+    },
 }, {
     timestamps: true,
     toObject: { virtuals: true },
     toJSON: { virtuals: true }
 });
-const Club = mongoose.model('Club', ClubModel);
-module.exports = Club;
+const ClubEmployee = mongoose.model('ClubEmployee', ClubEmplyoeeModel);
+module.exports = ClubEmployee;

@@ -17,8 +17,12 @@
                 "STATIC": "/admin/profile/image/"
             },
             "USER": {
-                "ACTUAL": "/uploads/images/customer/",
-                "STATIC": "/customer/profile/image/"
+                "ACTUAL": "/uploads/images/user/",
+                "STATIC": "/user/profile/image/"
+            },
+            "EMPLOYEE":{
+                "ACTUAL": "/uploads/images/employee/",
+                "STATIC": "/employee/profile/image/"
             }
         },
         "FILE": {

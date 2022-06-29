@@ -16,4 +16,9 @@ router.put("/profile", validations.admin.isAdminValid, service.upload.AdminProfi
 router.put("/profile/password/change", validations.admin.isAdminValid, controllers.admin.changePassword);
 router.post("/profile/password/forgot", controllers.admin.forgotPassword);
 router.post("/profile/password/reset", controllers.admin.resetPassword);
+/*
+MANAGE CLUBS
+*/
+router.post("/club",validations.admin.isAdminValid , controllers.admin.createClub);
+
 module.exports = router;

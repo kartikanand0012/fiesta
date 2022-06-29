@@ -196,5 +196,14 @@ module.exports = {
       console.log(error);
       next(error);
     }
+  },
+  createClub: async(req, res, next) => {
+    try {
+      await validations.admin.validateCreateClub(req, "body");
+      
+    } catch (error) {
+      console.log(error)
+      next(error)
+    }
   }
 };
