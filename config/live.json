@@ -1,0 +1,39 @@
+{
+    "PORT": 9072,
+    "DB_URL": "mongodb://localhost:27017/drhack",
+    "REDIS": {
+        "PORT": 6379,
+        "HOST": "127.0.0.1"
+    },
+    "JWT_OPTIONS": {
+        "SECRET_KEY": "SECRET_KEY",
+        "EXPIRES_IN": "1d"
+    },
+    "FCM_TOKEN": "AAAAxDg2DMg:APA91bH1sVyshALHAZXqTlvl33iIn8v1osQCpsKxwGkFXXv0xOwmmvUxij99hsoVMOyqGAQzBvc_A-Z32xfAMmU8slAOTNgtAgvApUqKWXao7HWmK1GLguTDxSoG3jOIYyeZYKNEOe5_",
+    "PATHS": {
+        "IMAGE": {
+            "ADMIN": {
+                "ACTUAL": "/uploads/images/admin/",
+                "STATIC": "/admin/profile/image/"
+            },
+            "USER": {
+                "ACTUAL": "/uploads/images/user/",
+                "STATIC": "/user/profile/image/"
+            },
+            "APP_CATEGORY": {
+                "ACTUAL": "/uploads/images/app",
+                "STATIC": "/app/image/"
+            }
+        },
+        "FILE": {
+            "DRIVER": {
+                "ACTUAL": "/uploads/files/driver/",
+                "STATIC": "/driver/profile/document/"
+            }
+        }
+    },
+    "OTP_OPTIONS": {
+        "EXPIRES": 1,
+        "IN": "minutes"
+    }
+}
